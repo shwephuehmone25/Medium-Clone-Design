@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+}
+.topnav {
+  position: fixed;
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  transition: 0.3s;
+  padding: 10px 20px;
+}
+.logo a {
+  display: block;
+}
+.logo svg {
+  display: block;
+  width: 100%;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  z-index: 1;
+  transition: 0.5s;
+}
+.menu li {
+  list-style-type: none;
+}
+.menu li a {
+  color: rgba(41, 41, 41, 1);
+  display: inline-block;
+  text-decoration: none;
+  padding: 40px 25px;
+  font-size: 18px;
+  line-height: 1;
+  transition: 0.3s;
+}
+.ham {
+  position: relative;
+  width: 30px;
+  height: 4px;
+  border-radius: 10px;
+  z-index: 2;
+  cursor: pointer;
+  transition: 0.3s;
+  background: #fff;
+  transition: 0.3s;
+}
+.ham :before,
+.ham :after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  right: 0;
+  background-color: #fff;
+  transition: 0.3s;
+  border-radius: 10px;
+}
+.ham :before {
+  top: -10px;
+  width: 20px;
+}
+.ham::after {
+  top: 10px;
+  width: 25px;
+}
+.toggle-menu {
+  position: absolute;
+  width: 30px;
+  height: 100%;
+  z-index: 3;
+  cursor: pointer;
+  opacity: 0;
+}
+.ham,
+.toggle-menu {
+  display: none;
+}
+.nav input:checked ~ .ham {
+  background: transparent;
+}
+.nav input:checked ~ .ham::before {
+  top: 0;
+  transform: rotate(-45deg);
+  width: 30px;
+}
+.nav input:checked ~ .ham::after {
+  top: 0;
+  transform: rotate(45deg);
+  width: 30px;
+}
+.nav input:checked ~ .menu {
+  right: 0;
+  box-shadow: -20px 0 40px rgba(255, 255, 255, 0.3);
+}
+@media screen and (max-width: 764px) {
+  .ham .toggle-menu {
+    display: block;
+  }
+  .menu {
+    position: fixed;
+    justify-content: start;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+    right: 0;
+    color: #000;
+    transition: 0.5s;
+    width: 300px;
+    height: 100px;
+    padding-top: 65px;
+  }
+  .menu li {
+    background-color: rgba(41, 41, 41, 1);
+    width: 100px;
+  }
+  .menu li a {
+    padding: 30px;
+    font-size: 14px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+    color: #fff;
+  }
+  .topnav {
+    padding: 10px 20px;
+  }
+}
